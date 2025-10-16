@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trò chơi ôn tập KHTN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0KOVEMeaOVTGFziSSMW/9XqGTrol0A7BDRLRniui0tTJ4blHzOKql" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <style>
+      body {
+        font-family: 'Nunito', sans-serif;
+      }
+      .font-calligraphy {
+        font-family: 'Pinyon Script', cursive;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(100vw); }
+        100% { transform: translateX(-100%); }
+      }
+      /* Ensure long math formulas are scrollable on small screens */
+      .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5em 0;
+      }
+
+      /* Calligraphy Animation */
+      @keyframes calligraphy-animation {
+        /* Word takes ~0.5s to appear */
+        0% { opacity: 0; transform: translateY(10px); }
+        4% { opacity: 1; transform: translateY(0); } 
+        /* Stays visible until the end of the pause */
+        99% { opacity: 1; transform: translateY(0); }
+        /* Disappears to restart the loop */
+        100% { opacity: 0; transform: translateY(10px); }
+      }
+
+      .calligraphy-container span {
+        display: block;
+        opacity: 0;
+        animation-name: calligraphy-animation;
+        /* ~2s for words to appear + 10s pause */
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+      
+      .calligraphy-container span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .calligraphy-container span:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .calligraphy-container span:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .calligraphy-container span:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
